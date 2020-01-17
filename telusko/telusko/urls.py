@@ -21,6 +21,7 @@ urlpatterns = [
     path('',include('travello.urls')),
     path('admin/', admin.site.urls),
     path('accounts/',include('accounts.urls')),
+     path('accounts/',include('allauth.urls')),
    
 ]
 

@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 {% static "images" as baseUrl %}
 
 <!DOCTYPE html>
@@ -40,6 +42,8 @@
 									{% else %}
 										<li><a href="accounts/register">Register</a></li>
 										<li><a href="accounts/login">Login</a></li>
+										
+									
 									{% endif %}
 								</ul>
 							</nav>
@@ -58,11 +62,11 @@
 		</div>
 		<div class="header_social d-flex flex-row align-items-center justify-content-start">
 			<ul class="d-flex flex-row align-items-start justify-content-start">
-				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+				<li><a href="{% provider_login_url "pinterest"  %}" ><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+				<li><a href="{% provider_login_url "facebook" method="js_sdk" %}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="{% provider_login_url "google"  %}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+		<!--		<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li> -->
 				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 			</ul>
 		</div>

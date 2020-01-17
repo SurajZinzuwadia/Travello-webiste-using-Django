@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect
 from django.contrib import messages
 from django.contrib.auth.models import User , auth
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def register(request):
     if request.method =='POST':
@@ -50,14 +51,23 @@ def logout(request):
     return redirect('/')
 
 class  destination:
+    @login_required
     def mumbai(request):
         return render(request,'mumbai.html')
+#        if request.user.is_authenticated():
+#            return render(request,'mumbai.html')
+#        else:
+#            return redirect('login')
+    @login_required
     def hydrabad(request):
         return render(request,'hydrabad.html')
+    @login_required
     def pune(request):
         return render(request,'pune.html')
+    @login_required
     def surat(request):
         return render(request,'surat.html')
+    @login_required
     def bengaluru(request):
         return render(request,'bengaluru.html')
 
